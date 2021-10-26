@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { AgoraEduSDK } from 'agora-classroom-sdk';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent implements OnInit {
-
-  ngOnInit(): void {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agora</title>
+  <!-- 此处集成 Agora Classroom SDK -->
+  <script src="https://download.agora.io/edu-apaas/release/edu_sdk_1.1.5.js"></script>
+</head>
+<body>
+  <style>
+    #root1 {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <div id="root"></div>
+  <script type="text/javascript">
     AgoraEduSDK.config({
       // 此处替换成你的 App ID
       appId: '1bf8ee8c7f4b4c21be79809a26039a9c',
     });
     // API文档：https://docs.agora.io/cn/agora-class/agora_class_api_ref_web?platform=Web#launchoption
     AgoraEduSDK.launch(
-      document.querySelector('#root') as any, {
+      document.querySelector('#root'), {
       // 此处替换成你的 RTM Token
       rtmToken: '0061bf8ee8c7f4b4c21be79809a26039a9cIADb/wx3W9TQ7wc+lFp7mKxnXIopR+tX0DGn2bj22n3HZ8KcwQsAAAAAEABDwDbNwzd4YQEA6APDN3hh',
       // 请确保此次的用户 ID 和你在生成临时 RTM Token 时使用的用户 ID 保持一致, 长度在 64 字节以内
@@ -50,7 +58,7 @@ export class AppComponent implements OnInit {
       // 课堂所在区域。所有客户端必须设置相同的区域，否则无法互通。灵动课堂支持以下区域：【CN】: （默认）中国大陆 【AP】: 亚太地区 【EU】: 欧洲 【NA】: 北美
       region: 'CN',
       // 课堂启动状态：ready: 课堂准备完毕 destroyed: 课堂已销毁
-      listener: (evt: any) => {
+      listener: (evt) => {
         console.log('evt', evt);
       }
     });
@@ -61,15 +69,13 @@ export class AppComponent implements OnInit {
 
     // 配置 aPaaS 服务 API文档：https://docs.agora.io/cn/agora-class/agora_class_prep
     // 白板、录制、环信IM
-  }
 
-}
+    // 白板参数
 
-// 白板参数
-
-// app: WyerYDWyEeyLu6WNgalePg/BTSz5JTXfXG4PA
-// ak: YmrhciwzES0ECErm
-// sk: zTjuWJU41qYwZmOHNFFoBfasnmdmaPWQ
-
-// tslint:disable-next-line:max-line-length
-// NETLESSSDK_YWs9WW1yaGNpd3pFUzBFQ0VybSZub25jZT1iYzBiOTgxMC0zNWIyLTExZWMtOGJiYi1hNThkODFhOTVlM2Umcm9sZT0wJnNpZz1kYjA2NGY5NGJhYTZjMDYwZDgxNjQwNTBjYzkxZDI5Yzk4NzU5MWQzMmEzNDQzMDNhOWE0MzVkNzExN2ZlNmNh
+    // appId: WyerYDWyEeyLu6WNgalePg/BTSz5JTXfXG4PA
+    // ak: YmrhciwzES0ECErm
+    // sk: zTjuWJU41qYwZmOHNFFoBfasnmdmaPWQ
+    // sdk-token：NETLESSSDK_YWs9WW1yaGNpd3pFUzBFQ0VybSZub25jZT1iYzBiOTgxMC0zNWIyLTExZWMtOGJiYi1hNThkODFhOTVlM2Umcm9sZT0wJnNpZz1kYjA2NGY5NGJhYTZjMDYwZDgxNjQwNTBjYzkxZDI5Yzk4NzU5MWQzMmEzNDQzMDNhOWE0MzVkNzExN2ZlNmNh
+  </script>
+</body>
+</html>
